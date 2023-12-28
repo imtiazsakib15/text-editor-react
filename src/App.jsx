@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [fontSize, setFontSize] = useState(12);
+  console.log(fontSize);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="border-2 border-cyan-500 flex gap-5 rounded mx-4 sm:mx-8 md:mx-12 lg:mx-16 my-12 sm:my-16 lg:my-20 p-5">
+        <textarea
+          className={`border border-gray-700 w-5/6 text-[${fontSize}px]`}
+          name="message"
+          id="message"
+          rows="10"
+          placeholder="New Text ..."
+        ></textarea>
+        <div className="w-1/6 border border-gray-700 p-4">
+          <div>
+            <input
+              type="number"
+              onChange={(e) => setFontSize(e.target.value)}
+              defaultValue={fontSize}
+              min={1}
+            />
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
